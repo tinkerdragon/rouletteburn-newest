@@ -1,7 +1,7 @@
 [package]
 name = "rouletteburn"
 version = "1.0.0"
-authors = ["Paul Dejean <paulcdejean@gmail.com>"]
+authors = ["Paul Dejean <paulcdejean@gmail.com>", "Stanley Chen <stanleydab111@gmail.com>"]
 edition = "2018"
 
 [lib]
