@@ -15,12 +15,12 @@ export function roulette(ns: NS): void {
   // Cleans up react element after exit
   ns.atExit(() => {
     ns.clearLog()
-    (ns.ui as any).closeTail()
+    ns.ui.closeTail()
   })
 
-  (ns.ui as any).openTail()
-  (ns.ui as any).resizeTail(750, 500)
-  (ns.ui as any).moveTail(350, 450)
+  ns.ui.openTail()
+  ns.ui.resizeTail(750, 500)
+  ns.ui.moveTail(350, 450)
 
   ns.printRaw(React.createElement(RouletteHelper))
 }
