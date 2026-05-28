@@ -12,15 +12,24 @@ export async function main(ns: NS): Promise<void> {
 export function roulette(ns: NS): void {
   ns.disableLog("ALL")
   ns.clearLog()
+
+  // Explicit structural typing to safely bypass outdated game UI definitions without using 'any'
+  const gameUi = ns.ui as unknown as {
+    closeTail: () => void
+    openTail: () => void
+    resizeTail: (width: number, height: number) => void
+    moveTail: (x: number, y: number) => void
+  }
+
   // Cleans up react element after exit
   ns.atExit(() => {
     ns.clearLog()
-    ns.ui.closeTail()
+    gameUi.closeTail()
   })
 
-  ns.ui.openTail()
-  ns.ui.resizeTail(750, 500)
-  ns.ui.moveTail(350, 450)
+  gameUi.openTail()
+  gameUi.resizeTail(750, 500)
+  gameUi.moveTail(350, 450)
 
   ns.printRaw(React.createElement(RouletteHelper))
 }
